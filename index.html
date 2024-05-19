@@ -1,0 +1,87 @@
+<!--
+// created by EMUYN LLC 2024-05-17
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMUYN LLC 内視鏡外科学会技術認定ビデオ作成</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <img src="resources/logo.png" alt="EMUYN LLC ロゴ" class="logo" id="emuynLogo">
+  <div class="container">
+    <h1 class="text-center">内視鏡外科学会技術認定ビデオ作成</h1>
+    <div class="form-group">
+      <p>
+        必ず説明をお読みになってからご利用ください&emsp;
+        <button id="openEmuynPageButton" class="btn btn-info btn-small">説明ページを開く</button>
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="input-directory">入力ディレクトリ</label>
+      <div class="input-group">
+        <input type="text" id="input-directory" class="form-control" placeholder="選択されていません" readonly>
+        <span class="input-group-btn">
+          <button id="select-input-directory" class="btn btn-primary">選択</button>
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="output-directory">出力ディレクトリ</label>
+      <div class="input-group">
+        <input type="text" id="output-directory" class="form-control" placeholder="選択されていません" readonly>
+        <span class="input-group-btn">
+          <button id="select-output-directory" class="btn btn-primary">選択</button>
+        </span>
+      </div>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" id="mergeWithoutCompression">
+        ファイルを圧縮せずにそのまま結合する <mark>(形式が揃った mp4 のみ)</mark>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>出力ファイルの解像度</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="resolution" id="resolution1080p" value="1080p" checked>
+          1080p (1920x1080)
+        </label>
+        &emsp;
+        <label>
+          <input type="radio" name="resolution" id="resolution720p" value="720p">
+          720p (1280x720)
+        </label>
+      </div>
+    </div>
+    <button id="start-process" class="btn btn-success btn-block" disabled>圧縮・結合開始</button>
+    <hr>
+    <div class="form-group">
+      対象動画ファイル
+      <pre id="file-list" class="well"></pre>
+    </div>
+    <div class="form-group">
+      <p>このソフトウェアは LGPLv2.1 の FFmpeg プロジェクトのライブラリを使用しています</p>
+      <p>このソフトウェアは、EMUYN LLC が開発し、GPL にて配布しています</p>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>

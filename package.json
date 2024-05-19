@@ -1,0 +1,39 @@
+{
+  "name": "jses-video-compressor-merger",
+  "version": "1.0.0",
+  "description": "Video Compressor and Merger for Certification of Japan Society for Endoscopic Surgery",
+  "author": "EMUYN LLC",
+  "main": "main.js",
+  "license": "GPL-3.0",
+  "scripts": {
+    "start": "set NODE_ENV=development&&electron .",
+    "pack": "electron-packager . EndoCertVideo --platform=win32 --arch=x64 --out=dist --overwrite",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.endocert.video",
+    "win": {
+      "target": "nsis"
+    },
+    "files": [
+      "resources/*",
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "style.css",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/",
+        "to": "resources/"
+      }
+    ]
+  },
+  "devDependencies": {
+    "electron": "^13.1.7",
+    "electron-builder": "^22.11.7",
+    "electron-packager": "^15.2.0"
+  }
+}
